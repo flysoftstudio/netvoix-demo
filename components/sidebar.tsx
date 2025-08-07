@@ -65,7 +65,12 @@ export default function Sidebar({ children }: SidebarProps) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="fixed top-0 right-0 z-50 bg-black text-white px-3 py-1 text-xs">
+      <div
+        className={cn(
+          "fixed top-0 right-0 z-50 bg-black text-white px-3 py-1 text-xs",
+          isMobileMenuOpen && "hidden lg:block"
+        )}
+      >
         Powered by <span className="font-bold">NetVoiX</span>
       </div>
 
@@ -94,16 +99,15 @@ export default function Sidebar({ children }: SidebarProps) {
       >
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="flex items-center gap-3 px-6 py-6 border-b border-gray-200">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <Building2 className="w-6 h-6 text-white" />
+          <div className="flex flex-col items-center px-6 py-6 border-b border-gray-200">
+            <div className="mb-2">
+              <img
+                src="/logo_website_v1.png"
+                alt="NetVoiX Logo"
+                className="w-32 h-auto"
+              />
             </div>
-            <div>
-              <h1 className="font-bold text-lg text-secondary">NetVoiX</h1>
-              <p className="text-xs text-muted-foreground">
-                Portal de Clientes
-              </p>
-            </div>
+            <p className="text-sm text-muted-foreground">Portal de Clientes</p>
           </div>
 
           {/* Navigation */}
