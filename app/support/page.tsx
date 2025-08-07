@@ -161,7 +161,11 @@ export default function SupportPage() {
           </Badge>
         );
       case "low":
-        return <Badge variant="secondary">Baja</Badge>;
+        return (
+          <Badge className="bg-gray-200 text-gray-600 hover:bg-gray-200">
+            Baja
+          </Badge>
+        );
       default:
         return <Badge variant="secondary">{priority}</Badge>;
     }
