@@ -65,9 +65,8 @@ export default function Sidebar({ children }: SidebarProps) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Powered by NetVoix tab */}
       <div className="fixed top-0 right-0 z-50 bg-black text-white px-3 py-1 text-xs">
-        Powered by <span className="font-bold">NetVoix</span>
+        Powered by <span className="font-bold">NetVoiX</span>
       </div>
 
       {/* Mobile menu button */}
