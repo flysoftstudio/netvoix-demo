@@ -1,27 +1,42 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { useRouter } from "next/navigation"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { FileText, HeadphonesIcon, Settings, TrendingUp, AlertCircle, CheckCircle, Clock, DollarSign } from 'lucide-react'
-import Link from "next/link"
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  FileText,
+  HeadphonesIcon,
+  Settings,
+  TrendingUp,
+  AlertCircle,
+  CheckCircle,
+  Clock,
+  DollarSign,
+} from "lucide-react";
+import Link from "next/link";
 
 export default function DashboardPage() {
-  const [user, setUser] = useState<any>(null)
-  const router = useRouter()
+  const [user, setUser] = useState<any>(null);
+  const router = useRouter();
 
   useEffect(() => {
-    const userData = localStorage.getItem('user')
+    const userData = localStorage.getItem("user");
     if (!userData) {
-      router.push('/login')
+      router.push("/login");
     } else {
-      setUser(JSON.parse(userData))
+      setUser(JSON.parse(userData));
     }
-  }, [router])
+  }, [router]);
 
-  if (!user) return null
+  if (!user) return null;
 
   const stats = [
     {
@@ -30,7 +45,7 @@ export default function DashboardPage() {
       description: "Total: $12,450",
       icon: FileText,
       color: "text-orange-600",
-      bgColor: "bg-orange-50"
+      bgColor: "bg-orange-50",
     },
     {
       title: "Tickets Abiertos",
@@ -38,7 +53,7 @@ export default function DashboardPage() {
       description: "1 alta prioridad",
       icon: HeadphonesIcon,
       color: "text-red-600",
-      bgColor: "bg-red-50"
+      bgColor: "bg-red-50",
     },
     {
       title: "Servicios Activos",
@@ -46,7 +61,7 @@ export default function DashboardPage() {
       description: "Todos operativos",
       icon: Settings,
       color: "text-green-600",
-      bgColor: "bg-green-50"
+      bgColor: "bg-green-50",
     },
     {
       title: "Ahorro Mensual",
@@ -54,9 +69,9 @@ export default function DashboardPage() {
       description: "vs. competencia",
       icon: TrendingUp,
       color: "text-primary",
-      bgColor: "bg-primary/5"
-    }
-  ]
+      bgColor: "bg-primary/5",
+    },
+  ];
 
   const recentActivity = [
     {
@@ -64,23 +79,23 @@ export default function DashboardPage() {
       title: "Nueva factura generada",
       description: "Factura #INV-2024-001 por $4,200",
       time: "Hace 2 horas",
-      status: "pending"
+      status: "pending",
     },
     {
       type: "support",
       title: "Ticket resuelto",
       description: "Problema de conectividad solucionado",
       time: "Hace 1 día",
-      status: "resolved"
+      status: "resolved",
     },
     {
       type: "service",
       title: "Servicio actualizado",
       description: "Plan de hosting mejorado",
       time: "Hace 3 días",
-      status: "active"
-    }
-  ]
+      status: "active",
+    },
+  ];
 
   return (
     <div className="space-y-6">
@@ -120,9 +135,7 @@ export default function DashboardPage() {
         <Card>
           <CardHeader>
             <CardTitle>Acciones Rápidas</CardTitle>
-            <CardDescription>
-              Gestiona tus servicios y soporte
-            </CardDescription>
+            <CardDescription>Gestiona tus servicios y soporte</CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
             <Link href="/invoices">
@@ -158,13 +171,13 @@ export default function DashboardPage() {
             {recentActivity.map((activity, index) => (
               <div key={index} className="flex items-start space-x-3">
                 <div className="flex-shrink-0">
-                  {activity.status === 'pending' && (
+                  {activity.status === "pending" && (
                     <Clock className="h-5 w-5 text-orange-500" />
                   )}
-                  {activity.status === 'resolved' && (
+                  {activity.status === "resolved" && (
                     <CheckCircle className="h-5 w-5 text-green-500" />
                   )}
-                  {activity.status === 'active' && (
+                  {activity.status === "active" && (
                     <Settings className="h-5 w-5 text-primary" />
                   )}
                 </div>
@@ -172,12 +185,10 @@ export default function DashboardPage() {
                   <p className="text-sm font-medium text-gray-900">
                     {activity.title}
                   </p>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-gray-600">
                     {activity.description}
                   </p>
-                  <p className="text-xs text-gray-400 mt-1">
-                    {activity.time}
-                  </p>
+                  <p className="text-xs text-gray-600 mt-1">{activity.time}</p>
                 </div>
               </div>
             ))}
@@ -185,5 +196,5 @@ export default function DashboardPage() {
         </Card>
       </div>
     </div>
-  )
+  );
 }
