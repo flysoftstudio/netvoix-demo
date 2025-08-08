@@ -52,17 +52,17 @@ export default function ServicesPage() {
   const activeServices = [
     {
       id: 1,
-      name: "Hosting Premium",
+      name: "Premium Hosting",
       category: "Infrastructure",
       status: "active",
       price: 299,
       billing: "monthly",
-      description: "Servidor dedicado con 32GB RAM, 1TB SSD",
+      description: "Dedicated server with 32GB RAM, 1TB SSD",
       features: [
         "99.9% Uptime",
         "24/7 Monitoring",
-        "SSL Incluido",
-        "Backup Diario",
+        "SSL Included",
+        "Daily Backup",
       ],
       usage: {
         cpu: 45,
@@ -76,17 +76,17 @@ export default function ServicesPage() {
     },
     {
       id: 2,
-      name: "Seguridad Avanzada",
+      name: "Advanced Security",
       category: "Security",
       status: "active",
       price: 199,
       billing: "monthly",
-      description: "Firewall, antivirus y monitoreo de seguridad",
+      description: "Firewall, antivirus and security monitoring",
       features: [
-        "Firewall Avanzado",
-        "Detección de Malware",
-        "Análisis de Vulnerabilidades",
-        "Reportes Semanales",
+        "Advanced Firewall",
+        "Malware Detection",
+        "Vulnerability Analysis",
+        "Weekly Reports",
       ],
       usage: {
         threats_blocked: 1247,
@@ -100,17 +100,17 @@ export default function ServicesPage() {
     },
     {
       id: 3,
-      name: "Base de Datos Gestionada",
+      name: "Managed Database",
       category: "Database",
       status: "active",
       price: 149,
       billing: "monthly",
-      description: "PostgreSQL gestionada con backup automático",
+      description: "Managed PostgreSQL with automatic backup",
       features: [
-        "Backup Automático",
-        "Replicación",
-        "Monitoreo 24/7",
-        "Optimización Automática",
+        "Automatic Backup",
+        "Replication",
+        "24/7 Monitoring",
+        "Automatic Optimization",
       ],
       usage: {
         connections: 45,
@@ -124,17 +124,17 @@ export default function ServicesPage() {
     },
     {
       id: 4,
-      name: "CDN Global",
+      name: "Global CDN",
       category: "Performance",
       status: "active",
       price: 89,
       billing: "monthly",
-      description: "Red de distribución de contenido global",
+      description: "Global content delivery network",
       features: [
-        "150+ Ubicaciones",
-        "Cache Inteligente",
-        "Compresión Automática",
-        "Analytics Detallados",
+        "150+ Locations",
+        "Smart Cache",
+        "Automatic Compression",
+        "Detailed Analytics",
       ],
       usage: {
         requests: 2500000,
@@ -151,45 +151,45 @@ export default function ServicesPage() {
   const availableServices = [
     {
       id: 5,
-      name: "Soporte Premium 24/7",
+      name: "24/7 Premium Support",
       category: "Support",
       price: 399,
       billing: "monthly",
-      description: "Soporte técnico dedicado las 24 horas",
+      description: "Dedicated technical support 24 hours",
       features: [
-        "Respuesta < 15 min",
-        "Técnico Dedicado",
-        "Acceso Prioritario",
-        "Consultoría Incluida",
+        "Response < 15 min",
+        "Dedicated Technician",
+        "Priority Access",
+        "Consulting Included",
       ],
       icon: Users,
       popular: true,
     },
     {
       id: 6,
-      name: "Backup Enterprise",
+      name: "Enterprise Backup",
       category: "Backup",
       price: 199,
       billing: "monthly",
-      description: "Backup automático con retención extendida",
+      description: "Automatic backup with extended retention",
       features: [
-        "Backup Cada Hora",
-        "Retención 1 Año",
-        "Restauración Rápida",
-        "Cifrado AES-256",
+        "Hourly Backup",
+        "1 Year Retention",
+        "Fast Restoration",
+        "AES-256 Encryption",
       ],
       icon: HardDrive,
     },
     {
       id: 7,
-      name: "Monitoreo Avanzado",
+      name: "Advanced Monitoring",
       category: "Monitoring",
       price: 129,
       billing: "monthly",
-      description: "Monitoreo completo de infraestructura",
+      description: "Complete infrastructure monitoring",
       features: [
-        "Métricas en Tiempo Real",
-        "Alertas Personalizadas",
+        "Real-time Metrics",
+        "Custom Alerts",
         "Dashboards",
         "API Access",
       ],
@@ -197,16 +197,16 @@ export default function ServicesPage() {
     },
     {
       id: 8,
-      name: "VPN Empresarial",
+      name: "Enterprise VPN",
       category: "Security",
       price: 79,
       billing: "monthly",
-      description: "Acceso seguro para equipos remotos",
+      description: "Secure access for remote teams",
       features: [
-        "Hasta 50 Usuarios",
-        "Múltiples Ubicaciones",
+        "Up to 50 Users",
+        "Multiple Locations",
         "Kill Switch",
-        "Logs Detallados",
+        "Detailed Logs",
       ],
       icon: Wifi,
     },
@@ -217,19 +217,19 @@ export default function ServicesPage() {
       case "active":
         return (
           <Badge className="bg-green-100 text-green-800 hover:bg-green-100">
-            Activo
+            Active
           </Badge>
         );
       case "inactive":
         return (
           <Badge className="bg-gray-100 text-gray-800 hover:bg-gray-100">
-            Inactivo
+            Inactive
           </Badge>
         );
       case "suspended":
         return (
           <Badge className="bg-red-100 text-red-800 hover:bg-red-100">
-            Suspendido
+            Suspended
           </Badge>
         );
       default:
@@ -248,9 +248,9 @@ export default function ServicesPage() {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-secondary">Servicios</h1>
+          <h1 className="text-3xl font-bold text-secondary">Services</h1>
           <p className="text-muted-foreground">
-            Gestiona tus servicios contratados y explora nuevas opciones
+            Manage your contracted services and explore new options
           </p>
         </div>
       </div>
@@ -260,7 +260,7 @@ export default function ServicesPage() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Servicios Activos
+              Active Services
             </CardTitle>
             <CheckCircle className="h-4 w-4 text-green-600" />
           </CardHeader>
@@ -268,47 +268,45 @@ export default function ServicesPage() {
             <div className="text-2xl font-bold text-green-600">
               {activeServices.length}
             </div>
-            <p className="text-xs text-muted-foreground">Todos operativos</p>
+            <p className="text-xs text-muted-foreground">All operational</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Gasto Mensual</CardTitle>
+            <CardTitle className="text-sm font-medium">Monthly Spend</CardTitle>
             <Settings className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-primary">
               ${totalMonthlySpend}
             </div>
-            <p className="text-xs text-muted-foreground">Facturación mensual</p>
+            <p className="text-xs text-muted-foreground">Monthly billing</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Uptime Promedio
+              Average Uptime
             </CardTitle>
             <TrendingUp className="h-4 w-4 text-green-600" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-green-600">99.9%</div>
-            <p className="text-xs text-muted-foreground">Últimos 30 días</p>
+            <p className="text-xs text-muted-foreground">Last 30 days</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Alertas Activas
-            </CardTitle>
+            <CardTitle className="text-sm font-medium">Active Alerts</CardTitle>
             <AlertCircle className="h-4 w-4 text-orange-600" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-orange-600">0</div>
             <p className="text-xs text-muted-foreground">
-              Todo funcionando bien
+              Everything working well
             </p>
           </CardContent>
         </Card>
@@ -317,9 +315,9 @@ export default function ServicesPage() {
       {/* Active Services */}
       <Card>
         <CardHeader>
-          <CardTitle>Servicios Activos</CardTitle>
+          <CardTitle>Active Services</CardTitle>
           <CardDescription>
-            Servicios que tienes contratados actualmente
+            Services you currently have contracted
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -359,13 +357,13 @@ export default function ServicesPage() {
                       <Progress value={service.usage.cpu} className="h-2" />
 
                       <div className="flex justify-between text-sm">
-                        <span>Memoria</span>
+                        <span>Memory</span>
                         <span>{service.usage.memory}%</span>
                       </div>
                       <Progress value={service.usage.memory} className="h-2" />
 
                       <div className="flex justify-between text-sm">
-                        <span>Almacenamiento</span>
+                        <span>Storage</span>
                         <span>{service.usage.storage}%</span>
                       </div>
                       <Progress value={service.usage.storage} className="h-2" />
@@ -376,7 +374,7 @@ export default function ServicesPage() {
                     <Dialog>
                       <DialogTrigger asChild>
                         <Button variant="outline" size="sm" className="flex-1">
-                          Ver Detalles
+                          View Details
                         </Button>
                       </DialogTrigger>
                       <DialogContent className="sm:max-w-[525px]">
@@ -389,7 +387,7 @@ export default function ServicesPage() {
                         <div className="space-y-4">
                           <div>
                             <h4 className="font-medium mb-2">
-                              Características Incluidas
+                              Included Features
                             </h4>
                             <ul className="space-y-1">
                               {service.features.map((feature, index) => (
@@ -407,9 +405,7 @@ export default function ServicesPage() {
                             <span className="text-lg font-semibold">
                               ${service.price}/{service.billing}
                             </span>
-                            <Button variant="outline">
-                              Gestionar Servicio
-                            </Button>
+                            <Button variant="outline">Manage Service</Button>
                           </div>
                         </div>
                       </DialogContent>
@@ -428,9 +424,9 @@ export default function ServicesPage() {
       {/* Available Services */}
       <Card>
         <CardHeader>
-          <CardTitle>Servicios Disponibles</CardTitle>
+          <CardTitle>Available Services</CardTitle>
           <CardDescription>
-            Expande tu infraestructura con servicios adicionales
+            Expand your infrastructure with additional services
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -474,7 +470,7 @@ export default function ServicesPage() {
                     ))}
                     {service.features.length > 2 && (
                       <div className="text-xs text-muted-foreground">
-                        +{service.features.length - 2} características más
+                        +{service.features.length - 2} more features
                       </div>
                     )}
                   </div>
@@ -485,7 +481,7 @@ export default function ServicesPage() {
                     </span>
                     <Button size="sm">
                       <Plus className="h-4 w-4 mr-1" />
-                      Contratar
+                      Contract
                     </Button>
                   </div>
                 </CardContent>

@@ -40,7 +40,7 @@ export default function DashboardPage() {
 
   const stats = [
     {
-      title: "Facturas Pendientes",
+      title: "Pending Invoices",
       value: "3",
       description: "Total: $12,450",
       icon: FileText,
@@ -48,25 +48,25 @@ export default function DashboardPage() {
       bgColor: "bg-orange-50",
     },
     {
-      title: "Tickets Abiertos",
+      title: "Open Tickets",
       value: "2",
-      description: "1 alta prioridad",
+      description: "1 high priority",
       icon: HeadphonesIcon,
       color: "text-red-600",
       bgColor: "bg-red-50",
     },
     {
-      title: "Servicios Activos",
+      title: "Active Services",
       value: "8",
-      description: "Todos operativos",
+      description: "All operational",
       icon: Settings,
       color: "text-green-600",
       bgColor: "bg-green-50",
     },
     {
-      title: "Ahorro Mensual",
+      title: "Monthly Savings",
       value: "$2,340",
-      description: "vs. competencia",
+      description: "vs. competition",
       icon: TrendingUp,
       color: "text-primary",
       bgColor: "bg-primary/5",
@@ -76,23 +76,23 @@ export default function DashboardPage() {
   const recentActivity = [
     {
       type: "invoice",
-      title: "Nueva factura generada",
-      description: "Factura #INV-2024-001 por $4,200",
-      time: "Hace 2 horas",
+      title: "New invoice generated",
+      description: "Invoice #INV-2024-001 for $4,200",
+      time: "2 hours ago",
       status: "pending",
     },
     {
       type: "support",
-      title: "Ticket resuelto",
-      description: "Problema de conectividad solucionado",
-      time: "Hace 1 día",
+      title: "Ticket resolved",
+      description: "Connectivity issue resolved",
+      time: "1 day ago",
       status: "resolved",
     },
     {
       type: "service",
-      title: "Servicio actualizado",
-      description: "Plan de hosting mejorado",
-      time: "Hace 3 días",
+      title: "Service updated",
+      description: "Hosting plan upgraded",
+      time: "3 days ago",
       status: "active",
     },
   ];
@@ -101,11 +101,9 @@ export default function DashboardPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold text-secondary">
-          Bienvenido, {user.name}
+          Welcome, {user.name}
         </h1>
-        <p className="text-muted-foreground">
-          {user.company} • Panel de control
-        </p>
+        <p className="text-muted-foreground">{user.company} • Control Panel</p>
       </div>
 
       {/* Stats Grid */}
@@ -134,26 +132,26 @@ export default function DashboardPage() {
         {/* Quick Actions */}
         <Card>
           <CardHeader>
-            <CardTitle>Acciones Rápidas</CardTitle>
-            <CardDescription>Gestiona tus servicios y soporte</CardDescription>
+            <CardTitle>Quick Actions</CardTitle>
+            <CardDescription>Manage your services and support</CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
             <Link href="/invoices">
               <Button variant="outline" className="w-full justify-start">
                 <FileText className="mr-2 h-4 w-4" />
-                Ver Facturas
+                View Invoices
               </Button>
             </Link>
             <Link href="/support">
               <Button variant="outline" className="w-full justify-start">
                 <HeadphonesIcon className="mr-2 h-4 w-4" />
-                Crear Ticket de Soporte
+                Create Support Ticket
               </Button>
             </Link>
             <Link href="/services">
               <Button variant="outline" className="w-full justify-start">
                 <Settings className="mr-2 h-4 w-4" />
-                Gestionar Servicios
+                Manage Services
               </Button>
             </Link>
           </CardContent>
@@ -162,10 +160,8 @@ export default function DashboardPage() {
         {/* Recent Activity */}
         <Card>
           <CardHeader>
-            <CardTitle>Actividad Reciente</CardTitle>
-            <CardDescription>
-              Últimas actualizaciones de tu cuenta
-            </CardDescription>
+            <CardTitle>Recent Activity</CardTitle>
+            <CardDescription>Latest updates from your account</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             {recentActivity.map((activity, index) => (

@@ -41,7 +41,7 @@ export default function LoginPage() {
       );
       router.push("/dashboard");
     } else {
-      setError("Por favor, ingresa tu email y contraseña");
+      setError("Please enter your email and password");
     }
     setIsLoading(false);
   };
@@ -59,10 +59,10 @@ export default function LoginPage() {
           </div>
           <div className="space-y-3">
             <CardTitle className="text-lg font-bold text-secondary">
-              Portal de Clientes
+              Client Portal
             </CardTitle>
             <CardDescription className="text-muted-foreground">
-              Accede a tu cuenta para gestionar servicios y soporte
+              Access your account to manage services and support
             </CardDescription>
           </div>
         </CardHeader>
@@ -75,11 +75,11 @@ export default function LoginPage() {
             )}
 
             <div className="space-y-2">
-              <Label htmlFor="email">Email corporativo</Label>
+              <Label htmlFor="email">Corporate Email</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="usuario@empresa.com"
+                placeholder="user@company.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -87,7 +87,7 @@ export default function LoginPage() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password">Contraseña</Label>
+              <Label htmlFor="password">Password</Label>
               <div className="relative">
                 <Input
                   id="password"
@@ -114,14 +114,14 @@ export default function LoginPage() {
             </div>
 
             <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading ? "Iniciando sesión..." : "Iniciar Sesión"}
+              {isLoading ? "Signing in..." : "Sign In"}
             </Button>
           </form>
 
           <div className="mt-6 text-center text-sm text-muted-foreground">
-            <p>¿Problemas para acceder?</p>
+            <p>Having trouble accessing?</p>
             <Button variant="link" className="p-0 h-auto text-primary">
-              Contactar soporte técnico
+              Contact technical support
             </Button>
           </div>
         </CardContent>

@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "NetVoiX",
-  description: "Plataforma de gestión de clientes de NetVoiX",
+  description: "NetVoiX Client Management Platform",
   icons: {
     icon: [
       {
@@ -45,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="en">
       <head>
         <link rel="icon" href="/cropped-netvoix_logo_voip-32x32.png" />
         <link

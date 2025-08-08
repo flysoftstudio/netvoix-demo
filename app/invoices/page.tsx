@@ -1,34 +1,47 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { useRouter } from "next/navigation"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
-import { 
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
-import { FileText, Download, Search, Filter, Eye, DollarSign } from 'lucide-react'
+} from "@/components/ui/table";
+import {
+  FileText,
+  Download,
+  Search,
+  Filter,
+  Eye,
+  DollarSign,
+} from "lucide-react";
 
 export default function InvoicesPage() {
-  const [user, setUser] = useState<any>(null)
-  const [searchTerm, setSearchTerm] = useState("")
-  const router = useRouter()
+  const [user, setUser] = useState<any>(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
-    const userData = localStorage.getItem('user')
+    const userData = localStorage.getItem("user");
     if (!userData) {
-      router.push('/login')
+      router.push("/login");
     } else {
-      setUser(JSON.parse(userData))
+      setUser(JSON.parse(userData));
     }
-  }, [router])
+  }, [router]);
 
   const invoices = [
     {
@@ -37,8 +50,8 @@ export default function InvoicesPage() {
       dueDate: "2024-02-15",
       amount: 4200,
       status: "pending",
-      services: "Hosting Premium + Soporte",
-      description: "Servicios de hosting y soporte técnico - Enero 2024"
+      services: "Premium Hosting + Support",
+      description: "Hosting services and technical support - January 2024",
     },
     {
       id: "INV-2024-002",
@@ -46,8 +59,8 @@ export default function InvoicesPage() {
       dueDate: "2024-02-10",
       amount: 3800,
       status: "pending",
-      services: "Desarrollo Web",
-      description: "Desarrollo de módulo de reportes"
+      services: "Web Development",
+      description: "Reports module development",
     },
     {
       id: "INV-2023-012",
@@ -55,8 +68,8 @@ export default function InvoicesPage() {
       dueDate: "2024-01-15",
       amount: 4450,
       status: "paid",
-      services: "Hosting Premium + Soporte",
-      description: "Servicios de hosting y soporte técnico - Diciembre 2023"
+      services: "Premium Hosting + Support",
+      description: "Hosting services and technical support - December 2023",
     },
     {
       id: "INV-2023-011",
@@ -64,8 +77,8 @@ export default function InvoicesPage() {
       dueDate: "2023-12-15",
       amount: 4200,
       status: "paid",
-      services: "Hosting Premium + Soporte",
-      description: "Servicios de hosting y soporte técnico - Noviembre 2023"
+      services: "Premium Hosting + Support",
+      description: "Hosting services and technical support - November 2023",
     },
     {
       id: "INV-2023-010",
@@ -73,42 +86,55 @@ export default function InvoicesPage() {
       dueDate: "2023-11-15",
       amount: 4200,
       status: "paid",
-      services: "Hosting Premium + Soporte",
-      description: "Servicios de hosting y soporte técnico - Octubre 2023"
-    }
-  ]
+      services: "Premium Hosting + Support",
+      description: "Hosting services and technical support - October 2023",
+    },
+  ];
 
   const getStatusBadge = (status: string) => {
     switch (status) {
-      case 'paid':
-        return <Badge className="bg-green-100 text-green-800 hover:bg-green-100">Pagada</Badge>
-      case 'pending':
-        return <Badge className="bg-orange-100 text-orange-800 hover:bg-orange-100">Pendiente</Badge>
-      case 'overdue':
-        return <Badge className="bg-red-100 text-red-800 hover:bg-red-100">Vencida</Badge>
+      case "paid":
+        return (
+          <Badge className="bg-green-100 text-green-800 hover:bg-green-100">
+            Paid
+          </Badge>
+        );
+      case "pending":
+        return (
+          <Badge className="bg-orange-100 text-orange-800 hover:bg-orange-100">
+            Pending
+          </Badge>
+        );
+      case "overdue":
+        return (
+          <Badge className="bg-red-100 text-red-800 hover:bg-red-100">
+            Overdue
+          </Badge>
+        );
       default:
-        return <Badge variant="secondary">{status}</Badge>
+        return <Badge variant="secondary">{status}</Badge>;
     }
-  }
+  };
 
-  const filteredInvoices = invoices.filter(invoice =>
-    invoice.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    invoice.services.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+  const filteredInvoices = invoices.filter(
+    (invoice) =>
+      invoice.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      invoice.services.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const totalPending = invoices
-    .filter(inv => inv.status === 'pending')
-    .reduce((sum, inv) => sum + inv.amount, 0)
+    .filter((inv) => inv.status === "pending")
+    .reduce((sum, inv) => sum + inv.amount, 0);
 
-  if (!user) return null
+  if (!user) return null;
 
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-secondary">Facturas</h1>
+          <h1 className="text-3xl font-bold text-secondary">Invoices</h1>
           <p className="text-muted-foreground">
-            Gestiona y descarga tus facturas
+            Manage and download your invoices
           </p>
         </div>
       </div>
@@ -117,9 +143,7 @@ export default function InvoicesPage() {
       <div className="grid gap-4 md:grid-cols-3">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Total Pendiente
-            </CardTitle>
+            <CardTitle className="text-sm font-medium">Total Pending</CardTitle>
             <DollarSign className="h-4 w-4 text-orange-600" />
           </CardHeader>
           <CardContent>
@@ -127,7 +151,8 @@ export default function InvoicesPage() {
               ${totalPending.toLocaleString()}
             </div>
             <p className="text-xs text-muted-foreground">
-              {invoices.filter(inv => inv.status === 'pending').length} facturas
+              {invoices.filter((inv) => inv.status === "pending").length}{" "}
+              invoices
             </p>
           </CardContent>
         </Card>
@@ -135,30 +160,24 @@ export default function InvoicesPage() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Facturas Este Mes
+              Invoices This Month
             </CardTitle>
             <FileText className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">2</div>
-            <p className="text-xs text-muted-foreground">
-              $8,000 total
-            </p>
+            <p className="text-xs text-muted-foreground">$8,000 total</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Próximo Vencimiento
-            </CardTitle>
+            <CardTitle className="text-sm font-medium">Next Due Date</CardTitle>
             <FileText className="h-4 w-4 text-red-600" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">15 Feb</div>
-            <p className="text-xs text-muted-foreground">
-              INV-2024-001
-            </p>
+            <p className="text-xs text-muted-foreground">INV-2024-001</p>
           </CardContent>
         </Card>
       </div>
@@ -168,16 +187,16 @@ export default function InvoicesPage() {
         <CardHeader>
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
             <div>
-              <CardTitle>Historial de Facturas</CardTitle>
+              <CardTitle>Invoice History</CardTitle>
               <CardDescription>
-                Todas tus facturas y su estado actual
+                All your invoices and their current status
               </CardDescription>
             </div>
             <div className="flex gap-2">
               <div className="relative">
                 <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
                 <Input
-                  placeholder="Buscar facturas..."
+                  placeholder="Search invoices..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="pl-8 w-64"
@@ -193,26 +212,24 @@ export default function InvoicesPage() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Factura</TableHead>
-                <TableHead>Fecha</TableHead>
-                <TableHead>Vencimiento</TableHead>
-                <TableHead>Servicios</TableHead>
-                <TableHead>Monto</TableHead>
-                <TableHead>Estado</TableHead>
-                <TableHead className="text-right">Acciones</TableHead>
+                <TableHead>Invoice</TableHead>
+                <TableHead>Date</TableHead>
+                <TableHead>Due Date</TableHead>
+                <TableHead>Services</TableHead>
+                <TableHead>Amount</TableHead>
+                <TableHead>Status</TableHead>
+                <TableHead className="text-right">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {filteredInvoices.map((invoice) => (
                 <TableRow key={invoice.id}>
-                  <TableCell className="font-medium">
-                    {invoice.id}
+                  <TableCell className="font-medium">{invoice.id}</TableCell>
+                  <TableCell>
+                    {new Date(invoice.date).toLocaleDateString("en-US")}
                   </TableCell>
                   <TableCell>
-                    {new Date(invoice.date).toLocaleDateString('es-ES')}
-                  </TableCell>
-                  <TableCell>
-                    {new Date(invoice.dueDate).toLocaleDateString('es-ES')}
+                    {new Date(invoice.dueDate).toLocaleDateString("en-US")}
                   </TableCell>
                   <TableCell>
                     <div>
@@ -225,9 +242,7 @@ export default function InvoicesPage() {
                   <TableCell className="font-medium">
                     ${invoice.amount.toLocaleString()}
                   </TableCell>
-                  <TableCell>
-                    {getStatusBadge(invoice.status)}
-                  </TableCell>
+                  <TableCell>{getStatusBadge(invoice.status)}</TableCell>
                   <TableCell className="text-right">
                     <div className="flex gap-2 justify-end">
                       <Button variant="ghost" size="icon">
@@ -245,5 +260,5 @@ export default function InvoicesPage() {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

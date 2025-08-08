@@ -23,17 +23,17 @@ const navigation = [
     icon: LayoutDashboard,
   },
   {
-    name: "Facturas",
+    name: "Invoices",
     href: "/invoices",
     icon: FileText,
   },
   {
-    name: "Soporte",
+    name: "Support",
     href: "/support",
     icon: HeadphonesIcon,
   },
   {
-    name: "Servicios",
+    name: "Services",
     href: "/services",
     icon: Settings,
   },
@@ -107,7 +107,7 @@ export default function Sidebar({ children }: SidebarProps) {
                 className="w-32 h-auto"
               />
             </div>
-            <p className="text-sm text-muted-foreground">Portal de Clientes</p>
+            <p className="text-sm text-muted-foreground">Client Portal</p>
           </div>
 
           {/* Navigation */}
@@ -145,7 +145,7 @@ export default function Sidebar({ children }: SidebarProps) {
               onClick={handleLogout}
             >
               <LogOut className="h-4 w-4" />
-              Cerrar Sesión
+              Sign Out
             </Button>
           </div>
         </div>

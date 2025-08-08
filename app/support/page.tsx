@@ -72,19 +72,19 @@ export default function SupportPage() {
   const tickets = [
     {
       id: "SUP-2024-001",
-      title: "Problema de conectividad en servidor principal",
-      category: "Infraestructura",
+      title: "Connectivity issue on main server",
+      category: "Infrastructure",
       priority: "high",
       status: "open",
       created: "2024-01-15",
       updated: "2024-01-16",
       assignedTo: "Carlos Mendez",
       description:
-        "El servidor principal presenta intermitencias en la conectividad...",
+        "The main server is experiencing connectivity intermittencies...",
     },
     {
       id: "SUP-2024-002",
-      title: "Solicitud de backup adicional",
+      title: "Additional backup request",
       category: "Backup",
       priority: "medium",
       status: "in_progress",
@@ -92,30 +92,29 @@ export default function SupportPage() {
       updated: "2024-01-14",
       assignedTo: "Ana Rodriguez",
       description:
-        "Necesitamos configurar un backup adicional para la base de datos...",
+        "We need to configure an additional backup for the database...",
     },
     {
       id: "SUP-2023-045",
-      title: "Actualización de certificados SSL",
-      category: "Seguridad",
+      title: "SSL certificates update",
+      category: "Security",
       priority: "low",
       status: "resolved",
       created: "2023-12-20",
       updated: "2023-12-22",
       assignedTo: "Luis Garcia",
-      description: "Renovación de certificados SSL para todos los dominios...",
+      description: "SSL certificates renewal for all domains...",
     },
     {
       id: "SUP-2023-044",
-      title: "Optimización de base de datos",
+      title: "Database optimization",
       category: "Performance",
       priority: "medium",
       status: "resolved",
       created: "2023-12-15",
       updated: "2023-12-18",
       assignedTo: "Maria Lopez",
-      description:
-        "Optimización de consultas y índices en la base de datos principal...",
+      description: "Query and index optimization in the main database...",
     },
   ];
 
@@ -124,25 +123,25 @@ export default function SupportPage() {
       case "open":
         return (
           <Badge className="bg-red-100 text-red-800 hover:bg-red-100">
-            Abierto
+            Open
           </Badge>
         );
       case "in_progress":
         return (
           <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-100">
-            En Progreso
+            In Progress
           </Badge>
         );
       case "resolved":
         return (
           <Badge className="bg-green-100 text-green-800 hover:bg-green-100">
-            Resuelto
+            Resolved
           </Badge>
         );
       case "closed":
         return (
           <Badge className="bg-gray-100 text-gray-800 hover:bg-gray-100">
-            Cerrado
+            Closed
           </Badge>
         );
       default:
@@ -153,17 +152,17 @@ export default function SupportPage() {
   const getPriorityBadge = (priority: string) => {
     switch (priority) {
       case "high":
-        return <Badge variant="destructive">Alta</Badge>;
+        return <Badge variant="destructive">High</Badge>;
       case "medium":
         return (
           <Badge className="bg-orange-100 text-orange-800 hover:bg-orange-100">
-            Media
+            Medium
           </Badge>
         );
       case "low":
         return (
           <Badge className="bg-gray-200 text-gray-600 hover:bg-gray-200">
-            Baja
+            Low
           </Badge>
         );
       default:
@@ -208,32 +207,33 @@ export default function SupportPage() {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-secondary">Soporte Técnico</h1>
+          <h1 className="text-3xl font-bold text-secondary">
+            Technical Support
+          </h1>
           <p className="text-muted-foreground">
-            Gestiona tus tickets de soporte y solicitudes
+            Manage your support tickets and requests
           </p>
         </div>
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogTrigger asChild>
             <Button>
               <Plus className="mr-2 h-4 w-4" />
-              Nuevo Ticket
+              New Ticket
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-[525px]">
             <DialogHeader>
-              <DialogTitle>Crear Nuevo Ticket</DialogTitle>
+              <DialogTitle>Create New Ticket</DialogTitle>
               <DialogDescription>
-                Describe tu problema o solicitud para que nuestro equipo pueda
-                ayudarte.
+                Describe your problem or request so our team can help you.
               </DialogDescription>
             </DialogHeader>
             <div className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="title">Título del Ticket</Label>
+                <Label htmlFor="title">Ticket Title</Label>
                 <Input
                   id="title"
-                  placeholder="Describe brevemente el problema..."
+                  placeholder="Briefly describe the problem..."
                   value={newTicket.title}
                   onChange={(e) =>
                     setNewTicket({ ...newTicket, title: e.target.value })
@@ -243,7 +243,7 @@ export default function SupportPage() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="priority">Prioridad</Label>
+                  <Label htmlFor="priority">Priority</Label>
                   <Select
                     value={newTicket.priority}
                     onValueChange={(value) =>
@@ -251,18 +251,18 @@ export default function SupportPage() {
                     }
                   >
                     <SelectTrigger>
-                      <SelectValue placeholder="Seleccionar prioridad" />
+                      <SelectValue placeholder="Select priority" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="low">Baja</SelectItem>
-                      <SelectItem value="medium">Media</SelectItem>
-                      <SelectItem value="high">Alta</SelectItem>
+                      <SelectItem value="low">Low</SelectItem>
+                      <SelectItem value="medium">Medium</SelectItem>
+                      <SelectItem value="high">High</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="category">Categoría</Label>
+                  <Label htmlFor="category">Category</Label>
                   <Select
                     value={newTicket.category}
                     onValueChange={(value) =>
@@ -270,13 +270,13 @@ export default function SupportPage() {
                     }
                   >
                     <SelectTrigger>
-                      <SelectValue placeholder="Seleccionar categoría" />
+                      <SelectValue placeholder="Select category" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="infrastructure">
-                        Infraestructura
+                        Infrastructure
                       </SelectItem>
-                      <SelectItem value="security">Seguridad</SelectItem>
+                      <SelectItem value="security">Security</SelectItem>
                       <SelectItem value="backup">Backup</SelectItem>
                       <SelectItem value="performance">Performance</SelectItem>
                       <SelectItem value="general">General</SelectItem>
@@ -286,10 +286,10 @@ export default function SupportPage() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="description">Descripción Detallada</Label>
+                <Label htmlFor="description">Detailed Description</Label>
                 <Textarea
                   id="description"
-                  placeholder="Proporciona todos los detalles relevantes del problema o solicitud..."
+                  placeholder="Provide all relevant details of the problem or request..."
                   rows={4}
                   value={newTicket.description}
                   onChange={(e) =>
@@ -303,9 +303,9 @@ export default function SupportPage() {
                   variant="outline"
                   onClick={() => setIsDialogOpen(false)}
                 >
-                  Cancelar
+                  Cancel
                 </Button>
-                <Button onClick={handleCreateTicket}>Crear Ticket</Button>
+                <Button onClick={handleCreateTicket}>Create Ticket</Button>
               </div>
             </div>
           </DialogContent>
@@ -316,55 +316,51 @@ export default function SupportPage() {
       <div className="grid gap-4 md:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Tickets Abiertos
-            </CardTitle>
+            <CardTitle className="text-sm font-medium">Open Tickets</CardTitle>
             <AlertTriangle className="h-4 w-4 text-red-600" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-red-600">{openTickets}</div>
-            <p className="text-xs text-muted-foreground">Requieren atención</p>
+            <p className="text-xs text-muted-foreground">Require attention</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">En Progreso</CardTitle>
+            <CardTitle className="text-sm font-medium">In Progress</CardTitle>
             <Clock className="h-4 w-4 text-blue-600" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-blue-600">
               {tickets.filter((t) => t.status === "in_progress").length}
             </div>
-            <p className="text-xs text-muted-foreground">Siendo trabajados</p>
+            <p className="text-xs text-muted-foreground">Being worked on</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Resueltos Este Mes
+              Resolved This Month
             </CardTitle>
             <CheckCircle className="h-4 w-4 text-green-600" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-green-600">12</div>
             <p className="text-xs text-muted-foreground">
-              Tiempo promedio: 2.3 días
+              Average time: 2.3 days
             </p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Satisfacción</CardTitle>
+            <CardTitle className="text-sm font-medium">Satisfaction</CardTitle>
             <HeadphonesIcon className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-primary">4.8/5</div>
-            <p className="text-xs text-muted-foreground">
-              Calificación promedio
-            </p>
+            <p className="text-xs text-muted-foreground">Average rating</p>
           </CardContent>
         </Card>
       </div>
@@ -374,15 +370,15 @@ export default function SupportPage() {
         <CardHeader>
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
             <div>
-              <CardTitle>Mis Tickets</CardTitle>
+              <CardTitle>My Tickets</CardTitle>
               <CardDescription>
-                Historial completo de tickets de soporte
+                Complete history of support tickets
               </CardDescription>
             </div>
             <div className="relative">
               <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
-                placeholder="Buscar tickets..."
+                placeholder="Search tickets..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-8 w-64"
@@ -395,13 +391,13 @@ export default function SupportPage() {
             <TableHeader>
               <TableRow>
                 <TableHead>Ticket</TableHead>
-                <TableHead>Título</TableHead>
-                <TableHead>Categoría</TableHead>
-                <TableHead>Prioridad</TableHead>
-                <TableHead>Estado</TableHead>
-                <TableHead>Asignado a</TableHead>
-                <TableHead>Actualizado</TableHead>
-                <TableHead className="text-right">Acciones</TableHead>
+                <TableHead>Title</TableHead>
+                <TableHead>Category</TableHead>
+                <TableHead>Priority</TableHead>
+                <TableHead>Status</TableHead>
+                <TableHead>Assigned to</TableHead>
+                <TableHead>Updated</TableHead>
+                <TableHead className="text-right">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -414,8 +410,8 @@ export default function SupportPage() {
                       <div>
                         <div className="font-medium">{ticket.title}</div>
                         <div className="text-sm text-muted-foreground">
-                          Creado:{" "}
-                          {new Date(ticket.created).toLocaleDateString("es-ES")}
+                          Created:{" "}
+                          {new Date(ticket.created).toLocaleDateString("en-US")}
                         </div>
                       </div>
                     </div>
@@ -425,7 +421,7 @@ export default function SupportPage() {
                   <TableCell>{getStatusBadge(ticket.status)}</TableCell>
                   <TableCell>{ticket.assignedTo}</TableCell>
                   <TableCell>
-                    {new Date(ticket.updated).toLocaleDateString("es-ES")}
+                    {new Date(ticket.updated).toLocaleDateString("en-US")}
                   </TableCell>
                   <TableCell className="text-right">
                     <div className="flex gap-2 justify-end">
